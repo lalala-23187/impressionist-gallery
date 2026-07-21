@@ -105,14 +105,13 @@
 
 /* Artwork Grid */
 .artwork-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  columns: 2;
+  column-gap: 16px;
 }
 
 @media (max-width: 600px) {
   .artwork-grid {
-    grid-template-columns: 1fr;
+    columns: 1;
   }
 }
 
@@ -123,13 +122,13 @@
   overflow: hidden;
   cursor: pointer;
   background: var(--color-surface);
-  aspect-ratio: 4 / 3;
+  margin-bottom: 16px;
+  break-inside: avoid;
 }
 
 .artwork-tile-img {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  display: block;
   transition: transform 0.65s var(--ease-out-expo);
 }
 
