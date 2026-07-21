@@ -38,7 +38,7 @@ export function Hero() {
       <img
         ref={bgRef}
         className="hero-bg"
-        src="/images/monet-water-lilies.jpg"
+        src="./images/monet-water-lilies.jpg"
         alt="Claude Monet - Water Lilies"
         fetchPriority="high"
         referrerPolicy="no-referrer"
