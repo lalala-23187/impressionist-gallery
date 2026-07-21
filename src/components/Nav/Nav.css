@@ -1,0 +1,81 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-gutter);
+  transition: background 0.45s ease, backdrop-filter 0.45s ease, border-color 0.45s ease;
+}
+
+.nav-scrolled {
+  background: rgba(8, 8, 8, 0.78);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nav-wordmark {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  opacity: 0.88;
+}
+
+.nav-dots {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.nav-dot {
+  position: relative;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(240, 237, 232, 0.22);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.nav-dot:hover {
+  background: rgba(240, 237, 232, 0.6);
+  transform: scale(1.5);
+}
+
+.nav-dot-active {
+  background: var(--color-accent) !important;
+  transform: scale(1.4);
+}
+
+.nav-dot::after {
+  content: attr(data-name);
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(18, 18, 18, 0.96);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  padding: 4px 10px;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.nav-dot:hover::after {
+  opacity: 1;
+}

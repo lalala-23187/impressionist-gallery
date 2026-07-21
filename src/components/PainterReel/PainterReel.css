@@ -1,0 +1,138 @@
+.reel-section {
+  padding: var(--space-section) 0;
+  overflow: hidden;
+}
+
+.reel-header {
+  padding: 0 var(--space-gutter);
+  margin-bottom: 48px;
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+}
+
+.reel-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-h2);
+  font-weight: 300;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.reel-count {
+  font-family: var(--font-sans);
+  font-size: var(--text-label);
+  letter-spacing: 0.2em;
+  color: var(--color-muted);
+  text-transform: uppercase;
+}
+
+.reel-track {
+  display: flex;
+  gap: 20px;
+  padding: 0 var(--space-gutter) 32px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  cursor: grab;
+}
+
+.reel-track:active {
+  cursor: grabbing;
+}
+
+.reel-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Painter Card */
+.painter-card {
+  flex: 0 0 clamp(240px, 22vw, 320px);
+  height: clamp(320px, 40vw, 440px);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  scroll-snap-align: start;
+  background: var(--color-surface);
+}
+
+.painter-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease-out-expo), filter 0.5s ease;
+  filter: saturate(0.85) brightness(0.8);
+}
+
+.painter-card:hover .painter-card-img {
+  transform: scale(1.06);
+  filter: saturate(1) brightness(0.65);
+}
+
+.painter-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(8, 8, 8, 0.92) 0%,
+    rgba(8, 8, 8, 0.4) 50%,
+    transparent 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+}
+
+.painter-card-movement {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.painter-card-name {
+  font-family: var(--font-serif);
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.painter-card-namecn {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 14px;
+  color: rgba(240, 237, 232, 0.55);
+  margin-bottom: 16px;
+}
+
+.painter-card-bio {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.65;
+  color: rgba(240, 237, 232, 0.7);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s var(--ease-out-expo), opacity 0.4s ease;
+  opacity: 0;
+}
+
+.painter-card:hover .painter-card-bio {
+  max-height: 120px;
+  opacity: 1;
+}
+
+.painter-card-years {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(240, 237, 232, 0.38);
+  margin-top: 12px;
+}

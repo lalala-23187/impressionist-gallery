@@ -1,0 +1,194 @@
+.painter-section {
+  padding: var(--space-section) var(--space-gutter);
+  border-top: 1px solid var(--color-border);
+}
+
+.painter-section-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .painter-section-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+/* Biography */
+.biography {
+  position: sticky;
+  top: calc(var(--nav-height) + 24px);
+  align-self: start;
+}
+
+.bio-accent-bar {
+  width: 32px;
+  height: 2px;
+  border-radius: 1px;
+  margin-bottom: 28px;
+}
+
+.bio-movement {
+  font-family: var(--font-sans);
+  font-size: var(--text-label);
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 12px;
+}
+
+.bio-name {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 4vw, 60px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--color-text);
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.bio-namecn {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--color-muted);
+  margin-bottom: 6px;
+}
+
+.bio-years {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: rgba(240, 237, 232, 0.32);
+  margin-bottom: 32px;
+}
+
+.bio-text {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.85;
+  color: rgba(240, 237, 232, 0.65);
+  white-space: pre-line;
+}
+
+.bio-meta {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bio-meta-row {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+
+.bio-meta-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  min-width: 56px;
+}
+
+.bio-meta-value {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: rgba(240, 237, 232, 0.55);
+}
+
+/* Artwork Grid */
+.artwork-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .artwork-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Artwork Tile */
+.artwork-tile {
+  position: relative;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--color-surface);
+  aspect-ratio: 4 / 3;
+}
+
+.artwork-tile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.65s var(--ease-out-expo);
+}
+
+.artwork-tile:hover .artwork-tile-img {
+  transform: scale(1.05);
+}
+
+.artwork-tile-info {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8,8,8,0.88) 0%, transparent 55%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  transform: translateY(8px);
+  opacity: 0;
+  transition: transform 0.45s var(--ease-out-expo), opacity 0.35s ease;
+}
+
+.artwork-tile:hover .artwork-tile-info {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.artwork-tile-title {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+
+.artwork-tile-year {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+}
+
+.artwork-tile-open {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(8, 8, 8, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.artwork-tile:hover .artwork-tile-open {
+  opacity: 1;
+  transform: scale(1);
+}
